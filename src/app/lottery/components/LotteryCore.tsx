@@ -48,7 +48,7 @@ export default function LotteryCore() {
   const isBuying = buy.isLoading
   const isBuyTxPending = pendingBuyTx.isLoading
 
-  const isSelected = inputValue.length < 1
+  const isSelected = inputValue.length === 0
 
   const btnDisabledState =
     !isClient ||
@@ -63,11 +63,15 @@ export default function LotteryCore() {
   const btnContent =
     isApproving || isApproveTxPending || isBuying || isBuyTxPending ? (
       <Text>Please wait...</Text>
-    ) : isAllowance || !isSelected ? (
+    ) : isAllowance || isSelected ? (
       'Approve'
     ) : (
       'Purchase'
     )
+
+  console.log(`inputvalue: ${inputValue.length}`)
+  console.log(`isAllowance: ${isAllowance}`)
+  console.log(`isSelected: ${isSelected}`)
 
   const handleOnBuy = () => {
     if (isAllowance) {
