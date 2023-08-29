@@ -31,8 +31,7 @@ export default function useApprove(amount: number) {
     scopeKey: 'allowance',
   })
 
-  const isAllowance =
-    Number(currentAllowance) === 0 || Number(currentAllowance) < totalTokens
+  const isAllowance = Number(currentAllowance) < totalTokens
 
   const prepareApprove = usePrepareContractWrite({
     cacheTime: 0,
