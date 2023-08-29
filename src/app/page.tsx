@@ -11,19 +11,15 @@ const syne = Syne({ subsets: ['latin'], weight: ['700'] })
 export default function Home() {
   return (
     <main>
-      <Section id='intro' className='p-4 sm:px-10 md:px-16 mt-7'>
+      <Section id='intro' className='p-4 sm:px-10 md:px-16'>
         <div className='lg:flex lg:flex-row lg:items-center xl:justify-between'>
           <div className='lg:basis-3/4 xl:basis-1/2'>
             <div className='space-y-5'>
-              <Heading as='h1' size='8' className={syne.className}>
+              <Heading as='h1' size='9' className={syne.className}>
                 Ultimate Gambling Experience
               </Heading>
 
-              <Text
-                size={{ initial: '5', md: '6', lg: '7' }}
-                as='p'
-                color='gray'
-              >
+              <Text size={{ initial: '5', md: '6' }} as='p' color='gray'>
                 Dive into deflationary riches, play favorite games, and change
                 lives with charitable donations - all in one token! Join the
                 winning revolution today!
