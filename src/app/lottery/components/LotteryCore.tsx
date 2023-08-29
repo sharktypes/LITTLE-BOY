@@ -69,10 +69,6 @@ export default function LotteryCore() {
       'Purchase'
     )
 
-  console.log(`inputvalue: ${inputValue.length}`)
-  console.log(`isAllowance: ${isAllowance}`)
-  console.log(`isSelected: ${isSelected}`)
-
   const handleOnBuy = () => {
     if (isAllowance) {
       approve.write?.()
