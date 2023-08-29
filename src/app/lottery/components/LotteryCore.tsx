@@ -63,7 +63,7 @@ export default function LotteryCore() {
   const btnContent =
     isApproving || isApproveTxPending || isBuying || isBuyTxPending ? (
       <Text>Please wait...</Text>
-    ) : isAllowance || isSelected ? (
+    ) : isAllowance && isSelected ? (
       'Approve'
     ) : (
       'Purchase'
