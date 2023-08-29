@@ -28,13 +28,11 @@ export default function useApprove(amount: number) {
     account: address,
     functionName: 'allowance',
     args: [address as `0x${string}`, LOTTERY_ADDRESS],
+    scopeKey: 'allowance',
   })
 
   const isAllowance =
     Number(currentAllowance) === 0 || Number(currentAllowance) < totalTokens
-
-  console.log(Number(currentAllowance))
-  console.log(isAllowance)
 
   const prepareApprove = usePrepareContractWrite({
     cacheTime: 0,
