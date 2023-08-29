@@ -1,3 +1,5 @@
+'use client'
+
 import { Text } from '@radix-ui/themes'
 import { Syne } from 'next/font/google'
 
