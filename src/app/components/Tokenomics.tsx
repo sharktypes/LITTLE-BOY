@@ -55,7 +55,7 @@ export default function Tokenomics() {
             mt='5'
             size={{ initial: '4', md: '5', lg: '6' }}
             color='gray'
-            className='sm:!mt-7 lg:!leading-relaxed'
+            className='sm:!mt-7'
           >
             LBC functions as a deflationary token that is primarily used as
             currency in the purchase of casino chips, as well as in the funding

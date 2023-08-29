@@ -23,7 +23,6 @@ export default function Home() {
                 size={{ initial: '5', md: '6', lg: '7' }}
                 as='p'
                 color='gray'
-                className='lg:!leading-relaxed'
               >
                 Dive into deflationary riches, play favorite games, and change
                 lives with charitable donations - all in one token! Join the
