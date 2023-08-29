@@ -1,7 +1,10 @@
 import useClient from '@/hooks/useClient'
 import useLottery from '@/hooks/useLottery'
-import { Button, Card, ScrollArea, Text } from '@radix-ui/themes'
+import { Card, ScrollArea, Text } from '@radix-ui/themes'
 import TicketButton from './TicketButton'
+import { block, For } from 'million/react'
+
+const TicketButtonBlock = block(TicketButton)
 
 export default function LotteryNumber({
   isNumberSelected,
@@ -36,16 +39,18 @@ export default function LotteryNumber({
         radius='medium'
       >
         <div className='grid grid-cols-5 pr-6 gap-4'>
-          {totalTickets?.map((num, i) => (
-            <TicketButton
-              number={num}
-              key={i}
-              isNumberSelected={isNumberSelected(num.toString())}
-              onClick={() => onClick(num.toString())}
-            >
-              {num.toString()}
-            </TicketButton>
-          ))}
+          <For each={totalTickets as bigint[]}>
+            {(num, i) => (
+              <TicketButtonBlock
+                number={num}
+                key={i}
+                isNumberSelected={isNumberSelected(num.toString())}
+                onClick={() => onClick(num.toString())}
+              >
+                {num.toString()}
+              </TicketButtonBlock>
+            )}
+          </For>
         </div>
       </ScrollArea>
     </Card>

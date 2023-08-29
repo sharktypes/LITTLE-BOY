@@ -9,6 +9,7 @@ import useApprove from '@/hooks/useApprove'
 import usePurchase from '@/hooks/usePurchase'
 import useClient from '@/hooks/useClient'
 import { useAccount, useNetwork } from 'wagmi'
+import { block } from 'million/react'
 
 export default function LotteryCore() {
   const isClient = useClient()
@@ -88,18 +89,22 @@ export default function LotteryCore() {
     }
   }, [isBuyTxPending])
 
+  const LotteryNumberBlock = block(LotteryNumber)
+  const LotteryBlock = block(Lottery)
+  const UserInfoBlock = block(UserInfo)
+
   return (
     <Section className='grid gap-y-10 md:grid-cols-2 xl:grid-cols-3'>
-      <LotteryNumber
+      <LotteryNumberBlock
         isNumberSelected={isNumberSelected}
         onClick={handleNumberButtonClick}
       />
-      <Lottery
+      <LotteryBlock
         btnDisabledState={btnDisabledState}
         btnContent={btnContent}
         handleOnBuy={handleOnBuy}
       />
-      <UserInfo />
+      <UserInfoBlock />
     </Section>
   )
 }

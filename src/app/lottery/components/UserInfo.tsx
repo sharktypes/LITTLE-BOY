@@ -5,8 +5,25 @@ import useLottery from '@/hooks/useLottery'
 import { nFormatter } from '@/utils/nFormatter'
 import useClient from '@/hooks/useClient'
 import styles from './lottery.module.css'
+import { For, block } from 'million/react'
 
 const syne = Syne({ subsets: ['latin'], weight: ['700'] })
+
+const TableRowBlock = block(function TableRow({
+  i,
+  item,
+}: {
+  i: number
+  item: bigint
+}) {
+  return (
+    <Table.Row key={i}>
+      <Table.RowHeaderCell className='!text-lg'>
+        {item.toString()}
+      </Table.RowHeaderCell>
+    </Table.Row>
+  )
+})
 
 export default function UserInfo() {
   const isClient = useClient()
@@ -81,13 +98,9 @@ export default function UserInfo() {
             </div>
           ) : (
             <Table.Body>
-              {myTickets?.map((item, i) => (
-                <Table.Row key={i}>
-                  <Table.RowHeaderCell className='!text-lg'>
-                    {item.toString()}
-                  </Table.RowHeaderCell>
-                </Table.Row>
-              ))}
+              <For each={myTickets as bigint[]}>
+                {(item, i) => <TableRowBlock i={i} item={item} />}
+              </For>
             </Table.Body>
           )}
         </Table.Root>
