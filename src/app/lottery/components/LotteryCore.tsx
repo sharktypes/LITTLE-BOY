@@ -57,8 +57,7 @@ export default function LotteryCore() {
     isApproving ||
     isApproveTxPending ||
     isBuying ||
-    isBuyTxPending ||
-    isSelected
+    isBuyTxPending
 
   const btnContent =
     isApproving || isApproveTxPending || isBuying || isBuyTxPending ? (
