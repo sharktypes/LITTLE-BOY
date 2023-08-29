@@ -40,7 +40,7 @@ export default function LotteryCore() {
   )
   const { buy, pendingBuyTx } = usePurchase(inputValue)
 
-  const isChainId = typeof chain?.id === 'number' && chain?.id !== 11155111
+  const isChainId = typeof chain?.id === 'number' && chain?.id !== 800001
 
   const isApproving = approve.isLoading
   const isApproveTxPending = pendingApproveTx.isLoading
@@ -57,16 +57,21 @@ export default function LotteryCore() {
     isApproving ||
     isApproveTxPending ||
     isBuying ||
-    isBuyTxPending
+    isBuyTxPending ||
+    isSelected
 
   const btnContent =
     isApproving || isApproveTxPending || isBuying || isBuyTxPending ? (
       <Text>Please wait...</Text>
-    ) : isAllowance ? (
+    ) : isAllowance || !isSelected ? (
       'Approve'
     ) : (
       'Purchase'
     )
+
+  console.log(`inputvalue: ${inputValue.length}`)
+  console.log(`isAllowance: ${isAllowance}`)
+  console.log(`isSelected: ${isSelected}`)
 
   const handleOnBuy = () => {
     if (isAllowance) {

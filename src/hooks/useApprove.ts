@@ -18,7 +18,7 @@ export default function useApprove(amount: number) {
     abi: TOKEN_ABI,
   }
 
-  const ticketPrice = parseInt(lotteryData?.[2].result?.toString() as string)
+  const ticketPrice = parseInt(lotteryData?.[1].result?.toString() as string)
   const totalTokens = amount * ticketPrice * 10 ** 18
 
   const { data: currentAllowance } = useContractRead({
@@ -31,7 +31,8 @@ export default function useApprove(amount: number) {
     scopeKey: 'allowance',
   })
 
-  const isAllowance = Number(currentAllowance) < totalTokens
+  const isAllowance =
+    Number(currentAllowance) === 0 || Number(currentAllowance) < totalTokens
 
   const prepareApprove = usePrepareContractWrite({
     cacheTime: 0,
