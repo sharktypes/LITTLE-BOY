@@ -53,7 +53,7 @@ export default function Tokenomics() {
             align='center'
             as='p'
             mt='5'
-            size={{ initial: '4', md: '5', lg: '6' }}
+            size={{ initial: '4', md: '5' }}
             color='gray'
             className='sm:!mt-7'
           >
